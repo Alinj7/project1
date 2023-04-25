@@ -1,6 +1,7 @@
 class_name Hero
 
 var xp: int
+var hp: int
 var level : int
 var strength : int
 var stamina:int
