@@ -1,14 +1,15 @@
 class_name Item
 
 var name:String
-var type =["Strength",  "Speed", "Hp" , "Agility"] 
+var types =["Strength",  "Speed", "Hp" , "Agility"] 
 
+var value:int #1 to 5
+var type:String
 
 func _init(mType, mValue):
     mValue=value
     #todo
 
-var value:int #1 to 5
 
 
 func add_value(stat):
