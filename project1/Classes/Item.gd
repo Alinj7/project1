@@ -10,7 +10,7 @@ var type:String
 
 func _init(mType, mValue):
     mValue=value
-    #todo
+    #todo, set type of item
 
 
 
