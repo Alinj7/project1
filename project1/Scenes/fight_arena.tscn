@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv208tu3uwmrj"]
+
+[ext_resource type="Script" path="res://Scripts/fight_arena.gd" id="1_n77yw"]
+[ext_resource type="PackedScene" uid="uid://cn0cojw0yasyv" path="res://Scenes/fighter.tscn" id="1_t5ee8"]
+
+[node name="fight_arena" type="Node2D"]
+script = ExtResource("1_n77yw")
+
+[node name="spawn_points" type="Node2D" parent="."]
+
+[node name="hero_point" type="Node2D" parent="spawn_points"]
+
+[node name="enemy_point" type="Node2D" parent="spawn_points"]
+
+[node name="Fighters" type="Node2D" parent="."]
+
+[node name="hero" parent="Fighters" instance=ExtResource("1_t5ee8")]
+position = Vector2(265, 305)
+
+[node name="enemy" parent="Fighters" instance=ExtResource("1_t5ee8")]
+position = Vector2(921, 316)
+scale = Vector2(-1, 1)
