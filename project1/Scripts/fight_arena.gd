@@ -2,11 +2,16 @@ extends Node2D
 class_name Fight_arena
 
 var turn:int #0 and 1
-var hero:fighter
-var enemy:fighter
-var fighters:Array(fighter)
-var active_fighter:fighter
+@onready var hero = $Fighters/hero
+@onready var enemy = $Fighters/enemy
+var fighters = [hero,enemy]
+var active_fighter
 
 
-func change_turn()
-func play_turn()
+func change_turn():
+	pass
+func play_turn():
+		pass
+		
+func _ready():
+	pass
