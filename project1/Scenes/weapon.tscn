@@ -1,10 +1,75 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfvrpyg5aecbs"]
+[gd_scene load_steps=8 format=3 uid="uid://cfvrpyg5aecbs"]
 
 [ext_resource type="Script" path="res://Scripts/weapon.gd" id="1_6mqsn"]
 [ext_resource type="Texture2D" uid="uid://ej2e4y0ci1pq" path="res://Assets/weapons/Knife.png" id="1_okfss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6aud"]
 size = Vector2(152, 116)
+
+[sub_resource type="Animation" id="Animation_8hb3k"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_k6un3"]
+resource_name = "attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Skeleton2D/knife:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.0872665, -0.349066, 0.698132, 1.0472, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton2D/knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(20, 0), Vector2(40, 0), Vector2(5, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6a8y"]
+resource_name = "knife"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Skeleton2D/knife:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.0872665, -0.0872665, -0.0872665, -0.0872665, -0.0872665, -0.0872665, -0.0872665, -0.1309, -0.174533, -0.218166, -0.261799, -0.305433, -0.349066, -0.174533, -2.98023e-08, 0.174533, 0.349066, 0.523599, 0.698132, 0.756309, 0.814487, 0.872665, 0.930842, 0.98902, 1.0472, 0.872665, 0.698132, 0.523599, 0.349066, 0.174533, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Skeleton2D/knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6, 0.633333, 0.666667, 0.7, 0.733333, 0.766667, 0.8, 0.833333, 0.866667, 0.9, 0.933333, 0.966667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(-2.98023e-07, 0), Vector2(3.33333, 0), Vector2(6.66667, 0), Vector2(10, 0), Vector2(13.3333, 0), Vector2(16.6667, 0), Vector2(20, 0), Vector2(23.3333, 0), Vector2(26.6667, 0), Vector2(30, 0), Vector2(33.3333, 0), Vector2(36.6667, 0), Vector2(40, 0), Vector2(34.1667, 0), Vector2(28.3333, 0), Vector2(22.5, 0), Vector2(16.6667, 0), Vector2(10.8333, 0), Vector2(5, 0), Vector2(4.16667, 0), Vector2(3.33333, 0), Vector2(2.5, 0), Vector2(1.66667, 0), Vector2(0.833333, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vn1oi"]
+_data = {
+"RESET": SubResource("Animation_8hb3k"),
+"attack": SubResource("Animation_k6un3"),
+"knife": SubResource("Animation_w6a8y")
+}
 
 [node name="weapon" type="Node2D"]
 script = ExtResource("1_6mqsn")
@@ -15,6 +80,24 @@ script = ExtResource("1_6mqsn")
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_d6aud")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+[node name="Polygon2D" type="Polygon2D" parent="Area2D"]
+position = Vector2(-73.0743, -56.8709)
+scale = Vector2(0.287237, 0.287237)
 texture = ExtResource("1_okfss")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(124.704, 106.468, 188.668, 63.2243, 316.596, 11.873, 400.38, -17.8568, 534.614, 1.06216, 551.732, 22.6838, 442.723, 111.873, 358.939, 233.495, 230.11, 330.792, 138.218, 358.72, 64.3441, 392.954, -5.02522, 392.954, -34.755, 310.972, 4.88468, 213.675, 75.155, 154.215)
+uv = PackedVector2Array(124.704, 106.468, 188.668, 63.2243, 316.596, 11.873, 400.38, -17.8568, 534.614, 1.06216, 551.732, 22.6838, 442.723, 111.873, 358.939, 233.495, 230.11, 330.792, 138.218, 358.72, 64.3441, 392.954, -5.02522, 392.954, -34.755, 310.972, 4.88468, 213.675, 75.155, 154.215)
+bones = ["knife", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
+
+[node name="weapon_animation" type="AnimationPlayer" parent="Area2D"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_vn1oi")
+}
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="knife" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[connection signal="input_event" from="Area2D" to="." method="wapon_click"]

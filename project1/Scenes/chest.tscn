@@ -1,11 +1,35 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpph7xfeo517v"]
+[gd_scene load_steps=6 format=3 uid="uid://cpph7xfeo517v"]
 
 [ext_resource type="Texture2D" uid="uid://dnkafovexmsxc" path="res://Assets/chest-normal.png" id="1_fr273"]
+[ext_resource type="Script" path="res://Scripts/chest.gd" id="1_tww13"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pt1wn"]
 size = Vector2(81, 47)
 
+[sub_resource type="Animation" id="Animation_ykm73"]
+resource_name = "chest_open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.212, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, -31), Vector2(-1, -35), Vector2(-1, -39), Vector2(-1, -42)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o1o5u"]
+_data = {
+"chest_open": SubResource("Animation_ykm73")
+}
+
 [node name="chest" type="Node2D"]
+script = ExtResource("1_tww13")
+value = 2
+items = ["item 1", "item 2"]
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -13,6 +37,39 @@ size = Vector2(81, 47)
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_pt1wn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.136, 0.147239)
+[node name="head" type="Polygon2D" parent="Area2D"]
+position = Vector2(-39, -23.3347)
+scale = Vector2(0.13059, 0.14338)
 texture = ExtResource("1_fr273")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(209.429, 1.7263, 66.9538, -4.64014, 34.3007, 9.64558, 19.9553, 30.6737, 5.72925, 53.8633, -0.393196, 79.7136, -4.47483, 100.802, 14.6921, 99.0947, 63.3763, 101.726, 126.534, 101.726, 221.271, 104.358, 289.692, 100.411, 347.587, 96.4632, 487.06, 100.411, 594.955, 99.0947, 608.113, 97.7789, 596.271, 67.5158, 584.429, 35.9368, 563.376, 18.8316, 526.534, -3.53685, 469.955, -0.905273, 426.534, 0.410522, 368.639, 0.410522, 310.745, 0.410522, 227.85, -3.53685)
+uv = PackedVector2Array(209.429, 1.7263, 67.3237, 0.410522, 42.3237, 14.8842, 19.9553, 30.6737, 9.42892, 53.0421, 5.48157, 79.3579, 1.53421, 93.8316, 14.6921, 99.0947, 63.3763, 101.726, 126.534, 101.726, 221.271, 104.358, 289.692, 100.411, 347.587, 96.4632, 487.06, 100.411, 594.955, 99.0947, 608.113, 97.7789, 596.271, 67.5158, 584.429, 35.9368, 563.376, 18.8316, 526.534, -3.53685, 469.955, -0.905273, 426.534, 0.410522, 368.639, 0.410522, 310.745, 0.410522, 227.85, -3.53685)
+polygons = [PackedInt32Array(41, 30, 12), PackedInt32Array(1, 0, 24, 23, 22, 21, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2)]
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 1, 1, 1, 1, 1, 1)]
+
+[node name="body" type="Polygon2D" parent="Area2D"]
+position = Vector2(-39.5803, -21.5818)
+scale = Vector2(0.131644, 0.128941)
+texture = ExtResource("1_fr273")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-7.95856, 97.5784, 119.068, 101.182, 319.969, 97.5784, 580.33, 97.5784, 635.285, 99.3802, 642.492, 307.488, 618.168, 337.098, 481.231, 331.693, 280.33, 337.999, 20.8703, 332.594, -18.7694, 324.486, -25.9766, 194.756)
+uv = PackedVector2Array(-7.95856, 97.5784, 119.068, 101.182, 319.969, 97.5784, 580.33, 97.5784, 635.285, 99.3802, 642.492, 307.488, 618.168, 337.098, 481.231, 331.693, 280.33, 337.999, 20.8703, 332.594, -18.7694, 324.486, -25.9766, 194.756)
+bones = ["body", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "body/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="chest_animations" type="AnimationPlayer" parent="Area2D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_o1o5u")
+}
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="body" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(0, 21)
+rest = Transform2D(1, 0, 0, 1, 0, 21)
+
+[node name="head" type="Bone2D" parent="Skeleton2D/body"]
+position = Vector2(-1, -31)
+rest = Transform2D(1, 0, 0, 1, -1, -31)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
