@@ -1,5 +1,5 @@
 extends Node2D
-
+class_name Weapon_script
 
 @export var title :String = "knife"
 @export var damage : int =200
