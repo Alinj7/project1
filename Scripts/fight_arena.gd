@@ -2,14 +2,14 @@ extends Node2D
 class_name Fight_arena
 
 var turn:int #0 and 1
-@onready var hero = $Fighters/hero
-@onready var enemy = $Fighters/enemy
+@onready var hero = $Fighters/hero as Fighter
+@onready var enemy = $Fighters/enemy as Fighter
 var fighters :Array
 var active_fighter
 var active_fighter_index = 0
 signal next_attack
 var hero_weapon
-var enemy_weapon
+var enemy_weapon 
 
 
 @onready var hero_health_bar = $CanvasLayer/UI/hero_bar
@@ -25,10 +25,13 @@ func _ready():
 	fighters.append(hero)
 	fighters.append(enemy)
 	#get fighters weapons to easier use
-	hero_weapon = hero.get_child(hero.get_child_count()-1) 
-	enemy_weapon = enemy.get_child(enemy.get_child_count()-1)
+	hero_weapon = hero.get_child(hero.get_child_count()-1) as Weapon_script
+	enemy_weapon = enemy.get_child(enemy.get_child_count()-1) as Weapon_script
+	
+	#hardcoding for test
 	hero_weapon.damage = 200
 	enemy_weapon.damage =100
+
 	
 	play_turn()
 	
