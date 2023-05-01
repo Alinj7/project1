@@ -56,7 +56,7 @@ func _ready():
 	if player1.hp <= 0:
 		print("player1 is winner")		
 	if player2.hp <= 0:
-		print("player1 is winner")
+		print("player2 is winner")
 
 
 func _process(delta):
