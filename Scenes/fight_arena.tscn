@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv208tu3uwmrj"]
+[gd_scene load_steps=7 format=3 uid="uid://dv208tu3uwmrj"]
 
 [ext_resource type="Script" path="res://Scripts/fight_arena.gd" id="1_n77yw"]
 [ext_resource type="PackedScene" uid="uid://cn0cojw0yasyv" path="res://Scenes/fighter.tscn" id="1_t5ee8"]
 [ext_resource type="Texture2D" uid="uid://cfcb2snxlpyo8" path="res://Assets/UI/hp_bar_red.png" id="3_bvfol"]
 [ext_resource type="Texture2D" uid="uid://bd04885agusi1" path="res://Assets/UI/hp_bar_over.png" id="4_gi0dv"]
 [ext_resource type="Texture2D" uid="uid://b7n00a76iyegw" path="res://Assets/UI/hp_bar_green.png" id="5_50ojx"]
+[ext_resource type="Texture2D" uid="uid://dcwqamrj8tlnh" path="res://Assets/UI/ok_button.png" id="6_fxh40"]
 
 [node name="fight_arena" type="Node2D"]
 script = ExtResource("1_n77yw")
@@ -84,6 +85,53 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 40
 text = "0"
 
+[node name="End_mathch_panel" type="Panel" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -160.0
+offset_right = 172.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/End_mathch_panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -58.0
+offset_top = 63.0
+offset_right = 65.0
+offset_bottom = 108.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "you won"
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/UI/End_mathch_panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -193.0
+offset_right = 86.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_fxh40")
+stretch_mode = 0
+
+[connection signal="end_match" from="." to="." method="_on_end_match"]
 [connection signal="next_attack" from="." to="." method="_on_next_attack"]
 [connection signal="attack_end" from="Fighters/hero" to="." method="_on_hero_attack_end"]
 [connection signal="attack_end" from="Fighters/enemy" to="." method="_on_enemy_attack_end"]
+[connection signal="pressed" from="CanvasLayer/UI/End_mathch_panel/TextureButton" to="." method="_on_texture_button_pressed"]
