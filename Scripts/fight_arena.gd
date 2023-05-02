@@ -4,12 +4,18 @@ class_name Fight_arena
 var turn:int #0 and 1
 @onready var hero = $Fighters/hero as Fighter
 @onready var enemy = $Fighters/enemy as Fighter
-var fighters :Array
+@onready var end_match_panel = $CanvasLayer/UI/End_mathch_panel
+@onready var end_match_label = $CanvasLayer/UI/End_mathch_panel/Label
+var fighters :Array[Fighter]
 var active_fighter
 var active_fighter_index = 0
 signal next_attack
+signal end_match
 var hero_weapon
 var enemy_weapon 
+
+var game_ended  =false
+var hero_won = false
 
 
 @onready var hero_health_bar = $CanvasLayer/UI/hero_bar
@@ -29,10 +35,10 @@ func _ready():
 	enemy_weapon = enemy.get_child(enemy.get_child_count()-1) as Weapon_script
 	
 	#hardcoding for test
-	hero_weapon.damage = 200
-	enemy_weapon.damage =100
+	hero_weapon.damage = 150
+	enemy_weapon.damage =225
 
-	
+	set_first_fighter()
 	play_turn()
 	
 	
@@ -46,7 +52,6 @@ func change_turn():
 	fighters[active_fighter_index].is_active_fighter = true
 	emit_signal("next_attack")
 func play_turn():
-	set_first_fighter()
 	active_figheter_attack()
 		
 
@@ -76,22 +81,48 @@ func initialize_ui():
 	enemy_hp_label.text = str(enemy.hp)
 
 
-func damage(fighter,weapon):
-	fighter.hp -= weapon.damage
+func damage(fighter:Fighter,weapon:Weapon_script):
+		fighter.hp -= weapon.damage
 
 func _on_hero_attack_end():
 	print("hero attack ended")
 	damage(enemy,hero_weapon)
-	change_turn()
+	if enemy.hp <0: enemy.hp = 0
+	if !check_end(): change_turn()
 
 
 func _on_enemy_attack_end():
 	print("hero attack ended")
 	damage(hero,enemy_weapon)
-	change_turn()
+	if hero.hp <0: hero.hp = 0
+	if !check_end(): change_turn()
 
 
 func _on_next_attack():
 	active_figheter_attack()
 	
-	
+
+func check_end():
+	for i in fighters:
+		if i.hp<=0:
+			game_ended = true
+			emit_signal("end_match")
+			return true
+	return false
+
+func _on_end_match():
+	if hero.hp<=0:hero_won = false
+	elif enemy.hp <= 0 : hero_won = true
+	for i in fighters:
+		i.is_active_fighter = false
+		end_match_panel.visible = true
+		if hero_won: end_match_label.text = "YOU WON"
+		else : end_match_label.text = "YOU LOST"
+		
+		
+		
+
+
+func _on_texture_button_pressed():
+	#todo : show rewards for winning or go to main scene for loosing
+	end_match_panel.visible = false 
