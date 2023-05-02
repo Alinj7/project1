@@ -1,0 +1,250 @@
+[gd_scene load_steps=7 format=3 uid="uid://cn0cojw0yasyv"]
+
+[ext_resource type="Script" path="res://Scripts/fighter.gd" id="1_257ni"]
+[ext_resource type="Texture2D" uid="uid://cq731sfr1044k" path="res://Assets/player_idle.png" id="2_ejxq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub06y"]
+size = Vector2(162, 257)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e27fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ejxq4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_odyfq"]
+resource_name = "idle"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/body/chest/neck/shoulder-left:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.00523599, -0.0174533, -0.00523599, 0.0, 0.00523599, 0.0139626, 0.0174533, 0.00872665]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/body/chest/neck/shoulder-left/arm-right:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.00523599, -0.010472, 0.0, 0.00523599, 0.010472, 0.0174533, 0.0261799, 0.0349066, 0.00872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/body/chest/neck/shoulder-left/arm-right/hand-left:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.00523599, 0.0174533, 0.0523599, 0.10472, 0.0872665, 0.0523599]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w01uf"]
+_data = {
+"idle": SubResource("Animation_odyfq")
+}
+
+[node name="fighter" type="Node2D"]
+script = ExtResource("1_257ni")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_ub06y")
+
+[node name="fighter1-polygon" type="Node" parent="Area2D"]
+
+[node name="top-heair" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(38.2353, 18.6275, 44.1177, 16.6667, 51.7647, 15.098, 56.8628, 13.9216, 64.1177, 11.9608, 66.8628, 16.0784, 65.4902, 19.8039, 64.902, 23.3333, 65.2941, 27.2549, 64.3137, 29.4118, 59.8039, 27.0588, 54.1177, 27.0588, 48.2353, 25.4902, 39, 24, 34.3137, 21.1765)
+uv = PackedVector2Array(38.2353, 18.6275, 44.1177, 16.6667, 51.7647, 15.098, 56.8628, 13.9216, 64.1177, 11.9608, 66.8628, 16.0784, 65.4902, 19.8039, 64.902, 23.3333, 65.2941, 27.2549, 64.3137, 29.4118, 59.8039, 27.0588, 54.1177, 27.0588, 48.2353, 25.4902, 41.1765, 23.3333, 36.6667, 21.7647)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(1, 0.5, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0.5, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="hair" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(25.3519, 26.5483, 32.6979, 21.572, 36, 21, 40.0438, 23.2308, 43.5983, 23.9417, 46.4419, 25.1265, 49, 25, 54, 26, 58, 27, 60, 27, 62.8161, 26.759, 64, 28, 64.2304, 35.6608, 63.5036, 36.9749, 63.5036, 41.4773, 63.0296, 46.2166, 60, 49, 60, 44, 58, 45, 54.7358, 43.61, 47.3898, 42.8991, 40.0438, 41.0033, 35.5415, 40.0555, 30.2869, 40.5476, 27, 43, 25, 45, 23, 51, 21, 55, 18.4799, 56.8801, 15.8732, 50.9559, 15.3993, 44.5578, 16.3472, 38.8706, 17.295, 35.5531, 18.4799, 33.4204, 20.6126, 31.9986, 22.7453, 30.1028, 23.4562, 29.6289)
+uv = PackedVector2Array(25.3519, 26.5483, 29.6173, 25.3635, 32.9348, 25.6005, 35.3045, 27.0223, 39.096, 27.0223, 42.1765, 27.0223, 46.9159, 27.0223, 53.314, 27.4962, 57.8164, 28.2071, 61.8448, 28.2071, 62.7927, 28.2071, 63.9775, 30.3398, 63.2666, 35.0792, 63.5036, 36.9749, 63.5036, 41.4773, 63.0296, 46.2166, 62.0818, 48.8232, 60.8969, 44.3209, 58.2903, 43.61, 54.7358, 43.61, 47.3898, 42.8991, 40.0438, 41.0033, 35.5415, 40.0555, 27.9585, 41.0033, 26.7737, 43.8469, 22.7453, 45.2687, 22.7453, 50.245, 20.8495, 54.5104, 18.4799, 56.8801, 15.8732, 50.9559, 15.3993, 44.5578, 16.3472, 38.8706, 17.295, 35.5531, 18.4799, 33.4204, 20.6126, 31.9986, 22.7453, 30.1028, 23.4562, 29.6289)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="neck" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(0, -1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(31.0557, 66.6536, 32.0541, 70.4805, 32.3869, 73.6419, 37.5449, 73.1428, 45.8644, 73.3092, 49.8577, 71.1461, 51.688, 68.1511, 51.3552, 67.1527)
+uv = PackedVector2Array(31.0557, 66.6536, 32.0541, 70.4805, 32.3869, 73.6419, 37.5449, 73.1428, 45.8644, 73.3092, 49.8577, 71.1461, 51.688, 68.1511, 51.3552, 67.1527)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="head" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(18.5565, 59.6824, 18, 56, 19, 56, 20, 55, 21, 54, 22, 53, 23, 51, 24, 47, 25.0457, 43.0434, 25, 41, 27.6247, 40.0484, 31.0357, 39.2165, 34.7794, 39.0501, 41.5182, 40.298, 46.3435, 41.8787, 52.1671, 42.5443, 60.3202, 44.2913, 60.237, 48.4511, 61.2354, 51.7789, 60.7362, 58.6008, 60.0706, 63.0101, 57.9076, 66.2547, 55.079, 67.1699, 37.6081, 67.0035, 22.7994, 66.8371, 19.8876, 63.9253, 18.8893, 61.4295)
+uv = PackedVector2Array(18.9725, 58.684, 19.9708, 58.4344, 21.3019, 56.7705, 22.1339, 55.0235, 22.9658, 53.1932, 23.465, 50.4478, 23.5482, 48.4511, 23.6314, 45.6225, 24.1305, 43.0434, 25.3785, 42.0451, 28.2903, 41.4627, 30.4533, 40.298, 34.7794, 40.1316, 38.44, 40.9636, 46.8427, 42.7106, 57.9076, 43.5426, 60.3202, 44.2913, 60.237, 48.4511, 61.2354, 51.7789, 60.7362, 58.6008, 60.0706, 63.0101, 57.9076, 66.2547, 55.079, 67.1699, 37.6081, 67.0035, 22.7994, 66.8371, 19.8876, 63.9253, 18.8893, 61.4295)
+
+[node name="body" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(-11.0424, -1)
+scale = Vector2(1.32123, 1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(25.7656, 68, 27.417, 91, 54.5266, 91, 54.5266, 82, 52.256, 68)
+uv = PackedVector2Array(29.5582, 72.1444, 29.3918, 90.4473, 52.1872, 90.6136, 51.3552, 70.4805)
+
+[node name="shoulder-right" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(20, 65, 30, 67, 32, 72, 29, 72, 27, 77, 25, 81, 18, 79, 14, 77, 14, 71, 16, 68, 17.911, 64.4905)
+uv = PackedVector2Array(19.9076, 64.6569, 22.0707, 66.82, 26.5632, 71.4789, 28.2271, 75.6386, 26.5632, 80.1311, 24.7329, 83.1261, 17.079, 79.1328, 11.2554, 76.8033, 12.4201, 70.6469, 14.7496, 68.1511, 17.911, 64.4905)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="arm-right" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(-1, -2)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(13, 79, 17, 79, 22, 81, 25, 82, 24, 87, 24, 87, 23, 89, 19.4849, 90.2298, 12.63, 90.2298, 11, 88, 11, 83)
+uv = PackedVector2Array(10.2107, 77.3266, 13.8397, 79.1411, 18.88, 80.9556, 22.5091, 82.7702, 23.7188, 83.5766, 21.501, 86.1976, 23.3155, 89.2218, 19.4849, 90.2298, 12.63, 90.2298, 9.20262, 88.6169, 8.19456, 81.9637)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 1), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="hand-right" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(0, -1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(9, 88, 14.5806, 88.8008, 18, 89, 23, 87, 24, 89, 27, 93, 22, 95, 23.7188, 98.2943, 21.9042, 100.512, 18.0736, 100.714, 13.2349, 101.117, 6.58166, 97.8911)
+uv = PackedVector2Array(8.59779, 89.4234, 14.0413, 89.8266, 18.4768, 90.4314, 23.7188, 89.4234, 24.9284, 90.6331, 25.9365, 92.6492, 22.9123, 96.2782, 23.7188, 98.2943, 21.9042, 100.512, 18.0736, 100.714, 13.2349, 101.117, 6.58166, 97.8911)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="shoulder-left" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(2, 1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(52.8527, 76.8033, 51.3552, 73.4755, 51.0225, 70.4805, 50.6897, 67.6519, 53, 66, 55, 64, 58, 63, 60.1739, 63.1594, 64.0008, 65.988, 67.3286, 68.6502, 68.327, 71.4789, 66.3303, 72.9764, 61.1722, 75.805, 55.0158, 78.8)
+uv = PackedVector2Array(52.8527, 76.8033, 51.3552, 73.4755, 51.0225, 70.4805, 50.6897, 67.6519, 54.0175, 67.4855, 56.8461, 67.4855, 58.3436, 66.1544, 60.1739, 63.1594, 64.0008, 65.988, 67.3286, 68.6502, 68.327, 71.4789, 66.3303, 72.9764, 61.1722, 75.805, 57.0125, 77.3025)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 1), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="arm-left" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(2, 1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(54.5166, 78.3008, 57.1789, 77.6353, 63.8344, 73.9747, 68, 71, 70, 78, 71.322, 85.7884, 71.6547, 89.7817, 66.8295, 90.9464, 63.1689, 90.78, 60.3403, 90.2809, 57.1789, 88.9497, 58.6764, 87.6186, 59.6747, 86.4539, 57.0125, 82.7933)
+uv = PackedVector2Array(54.5166, 78.3008, 57.1789, 77.6353, 63.8344, 73.9747, 67.1622, 72.4772, 69.4917, 78.3008, 71.322, 85.7884, 71.6547, 89.7817, 66.8295, 90.9464, 63.1689, 90.78, 60.3403, 90.2809, 57.1789, 88.9497, 58.6764, 87.6186, 59.6747, 86.4539, 57.0125, 82.7933)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(1, 1, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="hand-left" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+position = Vector2(2, -1)
+texture = ExtResource("2_ejxq4")
+skeleton = NodePath("../../../Skeleton2D")
+polygon = PackedVector2Array(58, 88, 59, 88, 60, 89, 60.673, 89.2825, 61.8378, 89.2825, 62.8361, 89.2825, 64.3336, 89.6153, 67.8278, 89.1161, 70, 89, 72, 89, 73, 90, 73, 92, 72.4867, 92.7767, 71.9875, 94.4406, 71.6547, 94.9398, 71.322, 97.9348, 70.6564, 98.2676, 68.9925, 99.9314, 68.6597, 100.264, 66.8295, 100.264, 63.5017, 100.264, 61.3386, 100.098, 59.3419, 99.5987, 57.678, 98.4339, 57.678, 97.7684, 57.678, 95.9381, 56.6797, 95.1062, 56.3469, 94.4406, 55.8478, 92.9431, 56, 91, 55.8478, 90.78, 56.0141, 90.2809, 57, 90)
+uv = PackedVector2Array(57.678, 88.1178, 58.6764, 88.4506, 59.1755, 88.7834, 60.673, 89.2825, 61.8378, 89.2825, 62.8361, 89.2825, 64.3336, 89.6153, 67.8278, 89.1161, 69.8245, 89.2825, 70.9892, 89.6153, 71.6547, 89.9481, 72.4867, 91.612, 72.4867, 92.7767, 71.9875, 94.4406, 71.6547, 94.9398, 71.322, 97.9348, 70.6564, 98.2676, 68.9925, 99.9314, 68.6597, 100.264, 66.8295, 100.264, 63.5017, 100.264, 61.3386, 100.098, 59.3419, 99.5987, 57.678, 98.4339, 57.678, 97.7684, 57.678, 95.9381, 56.6797, 95.1062, 56.3469, 94.4406, 55.8478, 92.9431, 55.8478, 91.9448, 55.8478, 90.78, 56.0141, 90.2809, 56.3469, 89.6153)
+bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-right/arm-right/hand-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/head/hair/top-hair", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/chest/neck/shoulder-left/arm-right/hand-left", PackedFloat32Array(1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 1), "body/lap-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-left/feet-left", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/lap-right/feet-right", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+
+[node name="lap-right" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+
+[node name="feet-right" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+
+[node name="lap-left" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+
+[node name="feet-left" type="Polygon2D" parent="Area2D/fighter1-polygon"]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2.05, 2.36364)
+sprite_frames = SubResource("SpriteFrames_e27fc")
+frame_progress = 0.54867
+
+[node name="attach_point" type="Node2D" parent="."]
+position = Vector2(106, 1)
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="body" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(1, 89)
+rest = Transform2D(1, 0, 0, 1, 1, 89)
+
+[node name="chest" type="Bone2D" parent="Skeleton2D/body"]
+position = Vector2(-1, -25)
+rest = Transform2D(1, 0, 0, 1, -1, -25)
+
+[node name="neck" type="Bone2D" parent="Skeleton2D/body/chest"]
+position = Vector2(0, -30)
+rest = Transform2D(1, 0, 0, 1, 0, -30)
+
+[node name="shoulder-right" type="Bone2D" parent="Skeleton2D/body/chest/neck"]
+position = Vector2(-37, 5)
+rotation = 0.010472
+rest = Transform2D(1, 0, 0, 1, -38, 6)
+
+[node name="arm-right" type="Bone2D" parent="Skeleton2D/body/chest/neck/shoulder-right"]
+position = Vector2(-9.6853, 30.1031)
+rest = Transform2D(1, 0, 0, 1, -11, 30)
+
+[node name="hand-right" type="Bone2D" parent="Skeleton2D/body/chest/neck/shoulder-right/arm-right"]
+position = Vector2(-0.388813, 23.2304)
+rest = Transform2D(1, 0, 0, 1, -1, 26)
+
+[node name="head" type="Bone2D" parent="Skeleton2D/body/chest/neck"]
+position = Vector2(0, -39)
+rest = Transform2D(1, 0, 0, 1, 0, -39)
+
+[node name="hair" type="Bone2D" parent="Skeleton2D/body/chest/neck/head"]
+position = Vector2(6, -34)
+rest = Transform2D(1, 0, 0, 1, 6, -34)
+
+[node name="top-hair" type="Bone2D" parent="Skeleton2D/body/chest/neck/head/hair"]
+position = Vector2(20, -40)
+rest = Transform2D(1, 0, 0, 1, 20, -40)
+
+[node name="shoulder-left" type="Bone2D" parent="Skeleton2D/body/chest/neck"]
+position = Vector2(40, 2)
+skew = 0.0087266
+rest = Transform2D(1, 0, 0, 1, 40, 2)
+
+[node name="arm-right" type="Bone2D" parent="Skeleton2D/body/chest/neck/shoulder-left"]
+position = Vector2(12, 32)
+skew = 0.0087266
+rest = Transform2D(1, 0, 0, 1, 12, 32)
+
+[node name="hand-left" type="Bone2D" parent="Skeleton2D/body/chest/neck/shoulder-left/arm-right"]
+position = Vector2(-9, 28)
+skew = 0.0523598
+rest = Transform2D(1, 0, 0, 1, -8, 26)
+
+[node name="lap-left" type="Bone2D" parent="Skeleton2D/body"]
+position = Vector2(20, 12)
+rest = Transform2D(1, 0, 0, 1, 20, 12)
+
+[node name="feet-left" type="Bone2D" parent="Skeleton2D/body/lap-left"]
+position = Vector2(1, 27)
+rest = Transform2D(1, 0, 0, 1, 1, 27)
+
+[node name="lap-right" type="Bone2D" parent="Skeleton2D/body"]
+position = Vector2(-24, 8)
+rest = Transform2D(1, 0, 0, 1, -24, 8)
+
+[node name="feet-right" type="Bone2D" parent="Skeleton2D/body/lap-right"]
+position = Vector2(-3, 29)
+rest = Transform2D(1, 0, 0, 1, -3, 29)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_w01uf")
+}
