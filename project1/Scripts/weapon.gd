@@ -38,7 +38,7 @@ func wapon_click(viewport, event, shape_idx):
 		animation_player.play("knife")
 		
 func move():
-	#weapon move with fighter in the faight_arena scene
+	#weapon move with fighter in the fight_arena scene
 	$Area2D/weapon_animation.play("move")
 
 func _ready():
