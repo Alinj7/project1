@@ -2,7 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.shortcuts import render
 from .models import User
-from game.utils import dataAndStatus,itemChecker
+from game.utils import dataAndStatus,itemChecker,encodeJWT
 from hashlib import sha256
 # Create your views here.
 @api_view(['POST'])
@@ -18,4 +18,17 @@ def createUser(request):
             ).__dict__
         createdUser.pop("_state")
         return dataAndStatus(createdUser)
+@api_view(['POST'])
+def loginUser(request):
+    data=request.data
+    checkI=itemChecker(data,["username","password"])
+    if(checkI):
+       return Response(checkI)
+    else:
+       userFind=User.objects.filter(
+           username=data['username'],
+           password=sha256(data['password'].encode("utf8")).hexdigest()
+           )[0].__dict__
+       jwtEncode=encodeJWT({"id":userFind['id']})
+       return dataAndStatus({"token":jwtEncode})
      
