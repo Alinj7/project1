@@ -31,11 +31,11 @@ func attack():
 				power = dice * dice
 		else: 
 			dice = rng.randf_range(0.0, 5.0)
-			if dice ==1:
-				power = attacker.strength
-			else:
+			if dice ==5:
 				dice += 1
 				power = dice * dice
+			else:
+				power = attacker.strength
 	else:
 		r1 = rng.randf_range(0.0, 5.0)
 		r2 = rng.randf_range(0.0, 5.0)
