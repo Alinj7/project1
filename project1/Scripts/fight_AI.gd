@@ -21,28 +21,28 @@ func play_turn():
 	
 func attack():
 	if attacker.speed > defender.agility:
-		r1 = rng.randf_range(0.0, 5.0)
-		r2 = rng.randf_range(0.0, 5.0)
+		r1 = int(rng.randf_range(0.0, 5.0))
+		r2 = int(rng.randf_range(0.0, 5.0))
 		if r1 > r2:
-			dice = rng.randf_range(0.0, 5.0)
+			dice = int(rng.randf_range(0.0, 5.0))
 			if dice ==1:
 				power = attacker.strength * 2
 			else:
 				power = dice * dice
 		else: 
-			dice = rng.randf_range(0.0, 5.0)
+			dice = int(rng.randf_range(0.0, 5.0))
 			if dice ==5:
 				dice += 1
 				power = dice * dice
 			else:
 				power = attacker.strength
 	else:
-		r1 = rng.randf_range(0.0, 5.0)
-		r2 = rng.randf_range(0.0, 5.0)
+		r1 = int(rng.randf_range(0.0, 5.0))
+		r2 = int(rng.randf_range(0.0, 5.0))
 		if r1 > r2:
 			power = attacker.strength
 		else:
-			dice = rng.randf_range(0.0, 5.0)
+			dice = int(rng.randf_range(0.0, 5.0))
 			if dice ==1:
 				power = 0
 			else:
