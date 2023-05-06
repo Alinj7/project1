@@ -12,12 +12,13 @@ var current_weapon : Weapon
 var current_skill : Skill
 
 
-func _init():
+func _init(mHp,mSpeed,mStrength,mAgility,mLevel=1,):
 	xp=0
-	level=1
-	strength=1
-	stamina=1
-	speed=1
-	agility=1
+	hp = mHp
+	level=mLevel
+	strength=mStrength
+	stamina=100
+	speed=mSpeed
+	agility=mAgility
 
 
