@@ -45,7 +45,21 @@ func _ready():
 	enemy_weapon = enemy.get_child(enemy.get_child_count()-1) as Weapon_script
 	
 	#hardcoding for test
+	#hero
+	hero.speed = 41
+	hero.strength = 50
+	hero.agility = 43
+	hero_weapon.speed_factor = 1
+	hero_weapon.strength_factor = 1
+	hero_weapon.agility_factor = 3
+	#enemy
+	enemy.speed = 42
+	enemy.strength = 48
+	enemy.agility = 43
 	enemy_weapon.speed_factor = 1
+	enemy_weapon.strength_factor = 2
+	enemy_weapon.agility_factor = 0
+	
 	add_weapon_power(hero, hero_weapon)
 	add_weapon_power(enemy,enemy_weapon)
 	

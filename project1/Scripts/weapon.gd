@@ -2,13 +2,12 @@ extends Node2D
 class_name Weapon_script
 
 @export var title :String = "knife"
-@export var damage : int =200
 var speed_factor :int =0
 var strength_factor:int = 0
 var agility_factor:int = 0
 @export var level : int = 1
-
 var texturePath = "res://Assets/weapons/"
+var cls
 
 #weapon names is selectable from sedtor dropdown list
 @export_enum("knife", "spear", "mace", "hawk_axe","double_spear" ,
@@ -27,12 +26,12 @@ var textures_Dic = {
 	"golden_double_sided_hawk_axe": "res://Assets/weapons/Golden_Double_Sided_Hawk_Axe.png",
 }
 
-var cls = Weapon.new(title,damage,level,0,0,0)
 func get_weapon_stats():
-	var info = cls.title + " damage: " + str(cls.damage) + " level: " + str(cls.level) 
+	var info = cls.title + " level: " + str(cls.level) 
 	print(info)
 	return info
-func _init():
+func _init(title="knife", level=1,speed=0,strength=0,agility=0):
+	cls= Weapon.new(title,level,speed,strength,agility)
 	texturePath += weapon_name
 	get_weapon_stats()
 	speed_factor = cls.speed_factor

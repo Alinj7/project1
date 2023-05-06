@@ -1,7 +1,7 @@
 extends Node2D
 class_name Fighter
 
-var cls=Hero.new()
+var cls
 var strength
 var hp :int = 1000
 var speed
@@ -14,6 +14,13 @@ var is_attacker:bool = false
 @onready var attach_point= $attach_point
 var weapon_node 
 signal attack_end
+
+func _init(hp=1000,speed=40,strength=40,agility=40):
+	cls = Hero.new(hp,speed,strength,agility)
+	hp= cls.hp
+	speed =  cls.speed
+	strength = cls.strength
+	agility = cls.agility
 
 func _ready():
 	set_fighter_stats()
