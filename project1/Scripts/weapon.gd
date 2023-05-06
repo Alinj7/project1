@@ -3,6 +3,9 @@ class_name Weapon_script
 
 @export var title :String = "knife"
 @export var damage : int =200
+var speed_factor :int =0
+var strength_factor:int = 0
+var agility_factor:int = 0
 @export var level : int = 1
 
 var texturePath = "res://Assets/weapons/"
@@ -24,14 +27,17 @@ var textures_Dic = {
 	"golden_double_sided_hawk_axe": "res://Assets/weapons/Golden_Double_Sided_Hawk_Axe.png",
 }
 
-var cls = Weapon.new(title,damage,level)
+var cls = Weapon.new(title,damage,level,0,0,0)
 func get_weapon_stats():
-	var info = cls.title + " damage: " + str(cls.damage) + " level: " + str(cls.level)
+	var info = cls.title + " damage: " + str(cls.damage) + " level: " + str(cls.level) 
 	print(info)
 	return info
 func _init():
 	texturePath += weapon_name
 	get_weapon_stats()
+	speed_factor = cls.speed_factor
+	strength_factor = cls.strength_factor
+	agility_factor = cls.agility_factor
 func wapon_click(viewport, event, shape_idx):
 	if(event.is_pressed()):
 		var animation_player=get_node("Area2D/weapon_animation")

@@ -3,13 +3,13 @@ class_name Fighter
 
 var cls=Hero.new()
 var strength
-var hp
+var hp :int = 1000
 var speed
 var agility
 var level
 var weapon = preload("res://Scenes/weapon.tscn")
 var skill:Skill
-var is_active_fighter:bool = false
+var is_attacker:bool = false
 @onready var anim = $AnimatedSprite
 @onready var attach_point= $attach_point
 var weapon_node 
@@ -30,7 +30,7 @@ func play_turn():
 	
 	
 func attack():
-	if is_active_fighter:
+	if is_attacker:
 		$AnimationPlayer.play("attack")
 		weapon_node.move()
 	
@@ -45,7 +45,7 @@ func get_stats():
 
 
 func _on_animation_player_animation_finished(attack):
-	is_active_fighter = false
+	is_attacker = false
 	emit_signal("attack_end")
 	
 func set_fighter_stats():
