@@ -1,12 +1,12 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683507224
+::res://::1683581509
 icon.svg::CompressedTexture2D::2642138703744344099::1683506981::1683507008::1::::<><>::
 ::res://Assets/::1683507008
 chest-normal.png::CompressedTexture2D::8092370492864611816::1683506981::1683507008::1::::<><>::
 player_idle.png::CompressedTexture2D::5963670414116110112::1683506981::1683507008::1::::<><>::
 ::res://Assets/background/::1683507009
 Background6-8.png::CompressedTexture2D::6745758397494429735::1683506981::1683507009::1::::<><>::
-::res://Assets/characters/::1683510679
+::res://Assets/characters/::1683510686
 before-cry-boy.png::CompressedTexture2D::940814987619460549::1683509101::1683509106::1::::<><>::
 before-win-boy.png::CompressedTexture2D::2728031716281684933::1683510651::1683510686::1::::<><>::
 blue-boy.png::CompressedTexture2D::6240321597585291484::1683506981::1683507009::1::::<><>::
@@ -14,7 +14,7 @@ boy.png::CompressedTexture2D::7039209538908487293::1683506981::1683507010::1::::
 cry-boy.png::CompressedTexture2D::6814544277080150071::1683508815::1683508821::1::::<><>::
 girl.png::CompressedTexture2D::5807340568547310004::1683506981::1683507010::1::::<><>::
 win-boy.png::CompressedTexture2D::4640445772882215328::1683510679::1683510685::1::::<><>::
-::res://Assets/chests/::1683507021
+::res://Assets/chests/::1683579616
 Asset 19@5x-8.png::CompressedTexture2D::2784066933571563202::1683506981::1683507011::1::::<><>::
 Asset 20@5x-8.png::CompressedTexture2D::5877782932277381308::1683506981::1683507012::1::::<><>::
 Asset 21@5x-8.png::CompressedTexture2D::1601648963424385632::1683506981::1683507011::1::::<><>::
@@ -24,6 +24,14 @@ Asset 24@5x-8.png::CompressedTexture2D::6669100154327784560::1683506981::1683507
 Asset 25@5x-8.png::CompressedTexture2D::8854481213352493443::1683506981::1683507018::1::::<><>::
 small-wooden-chest.png::CompressedTexture2D::3150542582842800226::1683506981::1683507012::1::::<><>::
 wooden-chest.png::CompressedTexture2D::3381477218965823362::1683506981::1683507012::1::::<><>::
+::res://Assets/chests/Diamond_Chest's/::1683581493
+Asset 77@5x-8.png::CompressedTexture2D::3590413370029435515::1683581493::1683581516::1::::<><>::
+Asset 78@5x-8.png::CompressedTexture2D::6751589047671525756::1683581342::1683581515::1::::<><>::
+Asset 79@5x-8.png::CompressedTexture2D::4117539462934572763::1683581164::1683581514::1::::<><>::
+Asset 80@5x-8.png::CompressedTexture2D::3700916802745416508::1683581272::1683581515::1::::<><>::
+Asset 81@5x-8.png::CompressedTexture2D::3368781747845139789::1683580995::1683581521::1::::<><>::
+Asset 82@5x-8.png::CompressedTexture2D::1158406694331868081::1683581413::1683581521::1::::<><>::
+Asset 83@5x-8.png::CompressedTexture2D::7806150876989962412::1683581089::1683581520::1::::<><>::
 ::res://Assets/menu/::1683507024
 1683216813383.png::CompressedTexture2D::7390704826586988273::1683506981::1683507019::1::::<><>::
 battle button.png::CompressedTexture2D::8803591542993202328::1683506981::1683507019::1::::<><>::
@@ -64,19 +72,19 @@ Level_class.gd::GDScript::-1::1683506981::0::1::::Level<>RefCounted<>::
 Skill_class.gd::GDScript::-1::1683506981::0::1::::Skill<>RefCounted<>::
 User_class.gd::GDScript::-1::1683506981::0::1::::User<>RefCounted<>::
 Weapon_class.gd::GDScript::-1::1683506981::0::1::::Weapon<>RefCounted<>::
-::res://Scenes/::1683508238
+::res://Scenes/::1683516105
 chest.tscn::PackedScene::5857123068584642509::1683506981::0::1::::<><>::uid://dnkafovexmsxc<>res://Scripts/chest.gd
-fighter.tscn::PackedScene::5737052721496146733::1683507785::0::1::::<><>::res://Scripts/fighter.gd<>uid://cq731sfr1044k
-fight_arena.tscn::PackedScene::8690543852995159147::1683507785::0::1::::<><>::res://Scripts/fight_arena.gd<>uid://cn0cojw0yasyv<>uid://c3dxwjprugt1x<>uid://cfcb2snxlpyo8<>uid://bd04885agusi1<>uid://b7n00a76iyegw<>uid://dcwqamrj8tlnh
-hero.tscn::PackedScene::4008431251557448995::1683508238::0::1::::<><>::uid://c7j30ucyt45wb<>res://Scripts/fighter.gd
+fighter.tscn::PackedScene::5737052721496146733::1683516105::0::1::::<><>::res://Scripts/fighter.gd<>uid://cq731sfr1044k
+fight_arena.tscn::PackedScene::8690543852995159147::1683516105::0::1::::<><>::res://Scripts/fight_arena.gd<>uid://cn0cojw0yasyv<>uid://c3dxwjprugt1x<>uid://cfcb2snxlpyo8<>uid://bxdyjokd8ntd0<>uid://bd04885agusi1<>uid://b7n00a76iyegw<>uid://dcwqamrj8tlnh
+hero.tscn::PackedScene::4008431251557448995::1683516105::0::1::::<><>::uid://c7j30ucyt45wb<>res://Scripts/fighter.gd<>uid://nn0c5yhqbkqv<>uid://c4daswhg347pr<>uid://be4qjwcl2dk8t<>uid://b7d4p1jgvcab5
 main-menu.tscn::PackedScene::8650176002720895239::1683506981::0::1::::<><>::uid://cjf1i5m0rj5lk<>res://Scripts/main-menu.gd<>uid://bk6nb6jkct2hs<>uid://cxbi882vpwikd<>uid://njtx8yel4nqc<>uid://cf6kxba7la6fi<>uid://cbo5rtlhaixip<>uid://dk35rpinpkqyi<>uid://dxor4pwu28ing<>uid://bogao2y76ddos<>uid://4vqn8js4g10<>uid://cige56my0f477<>uid://dh8bqahjf4oc7<>uid://ddmuguwc103il<>uid://c4divbhwfl76p<>uid://d0ckllrvqbng<>uid://cu54gj33tsxjo<>uid://dt7bjl8ri48qq<>uid://b143shbj5fik0<>uid://ej2e4y0ci1pq<>uid://crgq3i66fkdja<>uid://d1kr6gwo8dg6u<>uid://cfrxq857opqsm<>uid://oc875wrbunr4<>uid://cdw7wv8rx436n<>uid://dpbwd5qwxsdpo<>uid://rkp7u5liqebc
-Main.tscn::PackedScene::7825063371591392306::1683507785::0::1::::<><>::uid://cfvrpyg5aecbs<>uid://cpph7xfeo517v
+Main.tscn::PackedScene::7825063371591392306::1683516105::0::1::::<><>::uid://cfvrpyg5aecbs<>uid://cpph7xfeo517v
 weapon.tscn::PackedScene::5168197765389674908::1683506981::0::1::::<><>::res://Scripts/weapon.gd<>uid://ej2e4y0ci1pq
-::res://Scripts/::1683507442
+::res://Scripts/::1683515301
 chest.gd::GDScript::-1::1683506981::0::1::::<>Node2D<>::
 fighter.gd::GDScript::-1::1683506981::0::1::::Fighter<>Node2D<>::
 fight_AI.gd::GDScript::-1::1683506981::0::1::::<>RefCounted<>::
-fight_arena.gd::GDScript::-1::1683507442::0::1::::Fight_arena<>Node2D<>::
+fight_arena.gd::GDScript::-1::1683515301::0::1::::Fight_arena<>Node2D<>::
 General.gd::GDScript::-1::1683506981::0::1::::<>Node<>::
 hero.gd::GDScript::-1::1683506981::0::1::::<>Area2D<>::
 hero_bone.gd::GDScript::-1::1683506981::0::1::::<>Node2D<>::

@@ -538,12 +538,12 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "hip/body", Pa
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="hip" type="Bone2D" parent="Skeleton2D"]
-position = Vector2(-4, 0)
+position = Vector2(-4, 30)
 rest = Transform2D(1, 0, 0, 1, -4, 0)
 editor_settings/show_bone_gizmo = false
 
 [node name="body" type="Bone2D" parent="Skeleton2D/hip"]
-position = Vector2(8, -4.66842)
+position = Vector2(8, -5.7141)
 rest = Transform2D(1, 0, 0, 1, 14, -7)
 editor_settings/show_bone_gizmo = false
 
@@ -554,7 +554,7 @@ editor_settings/show_bone_gizmo = false
 
 [node name="head" type="Bone2D" parent="Skeleton2D/hip/body/neck"]
 position = Vector2(2, -87)
-rotation = 0.174533
+rotation = 0.0664866
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 2, -87)
 editor_settings/show_bone_gizmo = false
