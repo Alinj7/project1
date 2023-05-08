@@ -35,7 +35,6 @@ func _ready():
 	rng.randomize()
 	hero.position = $spawn_points/hero_point.position
 	enemy.position = $spawn_points/enemy_point.position
-	
 	initialize_ui()
 	
 	fighters.append(hero)

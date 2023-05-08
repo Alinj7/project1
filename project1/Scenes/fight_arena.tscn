@@ -29,12 +29,12 @@ position = Vector2(917, 304)
 [node name="Fighters" type="Node2D" parent="."]
 position = Vector2(0, 120)
 
-[node name="hero" parent="Fighters" instance=ExtResource("1_t5ee8")]
-position = Vector2(265, 305)
-
 [node name="enemy" parent="Fighters" instance=ExtResource("1_t5ee8")]
 position = Vector2(921, 316)
 scale = Vector2(-1, 1)
+
+[node name="hero" parent="Fighters" instance=ExtResource("1_t5ee8")]
+position = Vector2(265, 305)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -141,6 +141,6 @@ stretch_mode = 0
 
 [connection signal="end_match" from="." to="." method="_on_end_match"]
 [connection signal="next_attack" from="." to="." method="_on_next_attack"]
-[connection signal="attack_end" from="Fighters/hero" to="." method="_on_hero_attack_end"]
 [connection signal="attack_end" from="Fighters/enemy" to="." method="_on_enemy_attack_end"]
+[connection signal="attack_end" from="Fighters/hero" to="." method="_on_hero_attack_end"]
 [connection signal="pressed" from="CanvasLayer/UI/End_mathch_panel/TextureButton" to="." method="_on_texture_button_pressed"]

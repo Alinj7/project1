@@ -1,0 +1,5 @@
+res://Scenes/Main.tscn
+res://Scenes/fight_arena.tscn
+res://Scenes/fighter.tscn
+res://Scenes/hero.tscn
+res://Scripts/fight_arena.gd
