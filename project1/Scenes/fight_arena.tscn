@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dv208tu3uwmrj"]
+[gd_scene load_steps=9 format=3 uid="uid://dv208tu3uwmrj"]
 
 [ext_resource type="Script" path="res://Scripts/fight_arena.gd" id="1_n77yw"]
 [ext_resource type="PackedScene" uid="uid://cn0cojw0yasyv" path="res://Scenes/fighter.tscn" id="1_t5ee8"]
 [ext_resource type="Texture2D" uid="uid://c3dxwjprugt1x" path="res://Assets/background/Background6-8.png" id="2_cds3w"]
 [ext_resource type="Texture2D" uid="uid://cfcb2snxlpyo8" path="res://Assets/UI/hp_bar_red.png" id="3_bvfol"]
+[ext_resource type="PackedScene" uid="uid://bxdyjokd8ntd0" path="res://Scenes/hero.tscn" id="3_vtsci"]
 [ext_resource type="Texture2D" uid="uid://bd04885agusi1" path="res://Assets/UI/hp_bar_over.png" id="4_gi0dv"]
 [ext_resource type="Texture2D" uid="uid://b7n00a76iyegw" path="res://Assets/UI/hp_bar_green.png" id="5_50ojx"]
 [ext_resource type="Texture2D" uid="uid://dcwqamrj8tlnh" path="res://Assets/UI/ok_button.png" id="6_fxh40"]
@@ -35,6 +36,20 @@ scale = Vector2(-1, 1)
 
 [node name="hero" parent="Fighters" instance=ExtResource("1_t5ee8")]
 position = Vector2(265, 305)
+
+[node name="enemy" type="Node2D" parent="."]
+position = Vector2(904, 536)
+scale = Vector2(-0.5, 0.5)
+
+[node name="hero" parent="enemy" instance=ExtResource("3_vtsci")]
+position = Vector2(0, 0)
+
+[node name="hero" type="Node2D" parent="."]
+position = Vector2(265, 530)
+scale = Vector2(0.5, 0.5)
+
+[node name="hero" parent="hero" instance=ExtResource("3_vtsci")]
+position = Vector2(0, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -143,4 +158,6 @@ stretch_mode = 0
 [connection signal="next_attack" from="." to="." method="_on_next_attack"]
 [connection signal="attack_end" from="Fighters/enemy" to="." method="_on_enemy_attack_end"]
 [connection signal="attack_end" from="Fighters/hero" to="." method="_on_hero_attack_end"]
+[connection signal="attack_end" from="enemy/hero" to="." method="_on_hero_attack_end"]
+[connection signal="attack_end" from="hero/hero" to="." method="_on_hero_attack_end"]
 [connection signal="pressed" from="CanvasLayer/UI/End_mathch_panel/TextureButton" to="." method="_on_texture_button_pressed"]

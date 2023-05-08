@@ -2,8 +2,8 @@ extends Node2D
 class_name Fight_arena
 
 var turn:int #0 and 1
-@onready var hero = $Fighters/hero as Fighter
-@onready var enemy = $Fighters/enemy as Fighter
+@onready var hero = $hero/hero as Fighter
+@onready var enemy = $enemy/hero as Fighter
 @onready var end_match_panel = $CanvasLayer/UI/End_mathch_panel
 @onready var end_match_label = $CanvasLayer/UI/End_mathch_panel/Label
 var fighters :Array[Fighter]
@@ -35,6 +35,7 @@ func _ready():
 	rng.randomize()
 	hero.position = $spawn_points/hero_point.position
 	enemy.position = $spawn_points/enemy_point.position
+	
 	initialize_ui()
 	
 	fighters.append(hero)
@@ -242,6 +243,7 @@ func get_defender():
 			return fighter
 
 func add_weapon_power(fighter:Fighter, weapon: Weapon_script):
+	print(fighter,weapon)
 	fighter.speed += weapon.speed_factor
 	fighter.strength += weapon.strength_factor
 	fighter.agility += weapon.agility_factor
