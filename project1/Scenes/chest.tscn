@@ -169,6 +169,7 @@ uv = PackedVector2Array(212.861, 46.4, 355.718, 10.6857, 484.289, -7.17139, 662.
 bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
 
 [node name="chest5" type="Node2D" parent="Area2D/epics"]
+visible = false
 
 [node name="price" type="Polygon2D" parent="Area2D/epics/chest5"]
 position = Vector2(-129, -110)
@@ -197,7 +198,6 @@ uv = PackedVector2Array(370.004, 273.729, 391.432, 223.729, 512.861, 155.871, 60
 bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
 
 [node name="chest6" type="Node2D" parent="Area2D/epics"]
-visible = false
 
 [node name="price" type="Polygon2D" parent="Area2D/epics/chest6"]
 position = Vector2(-131.242, -117.772)
@@ -227,11 +227,10 @@ uv = PackedVector2Array(143.835, 97.3161, 192.223, 55.3806, 292.223, 13.4452, 35
 bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
 
 [node name="chest7" type="Node2D" parent="Area2D/epics"]
-visible = false
 
 [node name="price" type="Polygon2D" parent="Area2D/epics/chest7"]
-position = Vector2(-166, -124)
-scale = Vector2(0.085, 0.085)
+position = Vector2(-143, -111)
+scale = Vector2(0.072, 0.072)
 texture = ExtResource("8_ygs13")
 skeleton = NodePath("../../../../Skeleton2D")
 polygon = PackedVector2Array(96.65, 1120.81, 1546.65, 1120.81, 1510.94, 1292.24, 1539.51, 1342.24, 1968.08, 1335.1, 2389.51, 1335.1, 2432.36, 1299.39, 2418.08, 1127.96, 3789.51, 1113.67, 3703.79, 1499.39, 3721.58, 1623.4, 221.576, 1604.35)
@@ -239,8 +238,8 @@ uv = PackedVector2Array(96.65, 1120.81, 1546.65, 1120.81, 1510.94, 1292.24, 1539
 bones = ["body", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "body/head", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5)]
 
 [node name="body" type="Polygon2D" parent="Area2D/epics/chest7"]
-position = Vector2(-166, -174)
-scale = Vector2(0.085, 0.085)
+position = Vector2(-143, -161)
+scale = Vector2(0.072, 0.072)
 texture = ExtResource("8_ygs13")
 skeleton = NodePath("../../../../Skeleton2D")
 polygon = PackedVector2Array(102.529, 1606.98, 3850.15, 1606.98, 3854.91, 1802.22, 3859.67, 2276.93, 3831.1, 2319.79, 3778.72, 2305.5, 3778.72, 2362.65, 3854.91, 2381.7, 3873.96, 3015.03, 3826.34, 3115.03, 107.29, 3110.27, 69.1952, 2967.41, 78.7191, 2372.17, 169.195, 2367.41, 154.909, 2324.55, 78.7191, 2267.41)
@@ -248,8 +247,8 @@ uv = PackedVector2Array(102.529, 1606.98, 3850.15, 1606.98, 3854.91, 1802.22, 38
 bones = ["body", PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5), "body/head", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
 
 [node name="head" type="Polygon2D" parent="Area2D/epics/chest7"]
-position = Vector2(-164, -123)
-scale = Vector2(0.085, 0.085)
+position = Vector2(-141, -110)
+scale = Vector2(0.072, 0.072)
 texture = ExtResource("8_ygs13")
 skeleton = NodePath("../../../../Skeleton2D")
 polygon = PackedVector2Array(264.433, 83.1714, 373.957, 6.98099, 483.481, -7.30472, 764.433, -12.0666, 826.338, 2.21909, 1226.34, -7.30472, 1302.53, 11.7429, 2831.1, 2.21909, 3293, -7.30472, 3588.24, 6.98099, 3778.72, 149.838, 3873.96, 259.362, 3964.43, 383.171, 3969.2, 623.4, 3983.48, 1097.46, 3850.15, 1123.4, 3683.48, 1135.55, 2421.58, 1126.03, 2426.34, 1311.74, 2402.53, 1349.84, 1535.86, 1340.31, 1526.34, 1287.93, 1540.62, 1140.31, 7.29047, 1140.31, -26.0429, 728.162, 59.6714, 242.448)
@@ -291,7 +290,7 @@ position = Vector2(-1, 64)
 rest = Transform2D(1, 0, 0, 1, 0, 21)
 
 [node name="head" type="Bone2D" parent="Skeleton2D/body"]
-position = Vector2(-1, -60)
+position = Vector2(-1, -31)
 rest = Transform2D(1, 0, 0, 1, -1, -31)
 auto_calculate_length_and_angle = false
 length = 16.0
